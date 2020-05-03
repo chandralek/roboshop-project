@@ -10,4 +10,4 @@
 
 - name: get the Directory name
   debug:
-    msg: "{{out.stdout}}"
+    msg: "{{out.stdout.split('/')|last}}"
