@@ -8,7 +8,12 @@
     dest: /opt
     remote_src: yes
 
-- name: get the Directory name
+- name: Get the Directory name
   set_fact:
     NODEJS_DOWNLOADED_DIRECTORY: "{{out.stdout.split('/')[-1]s|regex_replace('tar.xz','')}}"
-  
+
+- name: Create a link with standard directory
+  file:
+    src: /opt/NODEJS_DOWNLOADED_DIRECTORY
+    dest: {{NODEJS}}
+    state: link
