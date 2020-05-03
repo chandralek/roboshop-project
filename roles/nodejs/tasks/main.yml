@@ -11,12 +11,6 @@
     src: "{{out.stdout}}"
     dest: /opt
     remote_src: yes
-  stat:
-    path: /opt/{{NODEJS_DOWNLOADED_DIRECTORY}}
-    register: p
-  debug:
-    msg: "Path exists and is a directory"
-  when: p.stat.isdir is defined and p.stat.isdir
 
 
 - name: Create a link with standard directory
