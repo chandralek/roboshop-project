@@ -4,6 +4,6 @@
   tasks:
     - name: Import User component
       import_role:
-        name: nodejs
+        name: user
       tags:
-        - nodejs
+        - user
