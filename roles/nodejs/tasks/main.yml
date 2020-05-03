@@ -15,5 +15,5 @@
 - name: Create a link with standard directory
   file:
     src: /opt/NODEJS_DOWNLOADED_DIRECTORY
-    dest: {{NODEJS}}
+    dest: "{{NODEJS}}"
     state: link
