@@ -10,6 +10,5 @@
 
 - name: get the Directory name
   set_fact:
-    NODEJS_DOWNLOADED_DIRECTORY: "{{item|regex_replace('tar.xz','')}}"
-  loop:
-    - "{{out.stdout.split('/')|last}}"
+    NODEJS_DOWNLOADED_DIRECTORY: "{{out.stdout.split('/')[-1]s|regex_replace('tar.xz','')}}"
+  
