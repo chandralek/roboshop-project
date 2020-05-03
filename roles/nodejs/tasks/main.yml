@@ -9,5 +9,7 @@
     remote_src: yes
 
 - name: get the Directory name
-  debug:
-    msg: "{{out.stdout.split('/')|last}}"
+  set_fact:
+    NODEJS_DOWNLOADED_DIRECTORY: "{{item|regex_replace('tar.xz','')}}"
+  loop:
+    - "{{out.stdout.split('/')|last}}"
