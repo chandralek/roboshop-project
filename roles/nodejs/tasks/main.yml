@@ -10,7 +10,7 @@
 
 - name: Get the Directory name
   set_fact:
-    NODEJS_DOWNLOADED_DIRECTORY: "{{out.stdout.split('/')[-1]s|regex_replace('tar.xz','')}}"
+    NODEJS_DOWNLOADED_DIRECTORY: "{{out.stdout.split('/')[-1]|regex_replace('tar.xz','')}}"
 
 - name: Create a link with standard directory
   file:
