@@ -2,8 +2,12 @@
   shell: curl -s https://nodejs.org/en/download/ | xargs -n1 | grep linux-x64.tar | sed -e 's|=| |g' -e 's|>| |g'| xargs -n1 | grep ^http
   register: out
 
-- name: Unarchive a node js file 
+- name: Unarchive a node js file
   unarchive:
     src: "{{out.stdout}}"
     dest: /opt
     remote_src: yes
+
+- name: get the Directory name
+  debug:
+    msg: "{{out.stdout}}"
