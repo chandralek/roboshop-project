@@ -1,0 +1,4 @@
+- name: Create Application User
+  user:
+    name: "{{APPLICATION_USERNAME}}"
+    comment: "Application User - user.service"
