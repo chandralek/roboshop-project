@@ -11,7 +11,7 @@
     group: "{{APPLICATION_USERNAME}}"
 
 - name: Set up latest {{APPLICATION_USER}} App
-  when DOWNLOAD_LATEST
+  when: DOWNLOAD_LATEST
   import_tasks: download-latest.yml
   become_user: "{{APPLICATION_USERNAME}}"
 
