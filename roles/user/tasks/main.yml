@@ -1,6 +1,6 @@
 - name: Setup User Application
   import_role:
     name: nodejs-app
-    vars:
-      DOWNLOAD_LATEST: true
-      APPLICATION_USER: user
+  vars:
+    DOWNLOAD_LATEST: true
+    APPLICATION_USER: user
