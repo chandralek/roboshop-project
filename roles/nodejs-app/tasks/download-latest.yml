@@ -4,7 +4,7 @@
 
 - name: Extract the artifacts
   unarchive:
-    src: latest.stdout
+    src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
     remote_src: yes
 
