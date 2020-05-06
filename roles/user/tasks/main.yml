@@ -3,4 +3,4 @@
     name: nodejs-app
   vars:
     DOWNLOAD_LATEST: true
-    APPLICATION_NAME: user
+    #APPLICATION_NAME: user
