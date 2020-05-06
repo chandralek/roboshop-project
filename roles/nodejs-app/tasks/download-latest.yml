@@ -2,4 +2,9 @@
   shell: curl -s {{NEXUS_URL}} |grep {{APPLICATION_USER}}-service- | awk -F \" '{ print $2 }' | tail -1
   register: latest
 
+- name: Extract the artifacts
+  unarchive:
+    src: latest.stdout
+    dest: "{{APPLICATION_HOME}}"
+    remote_src: yes
 

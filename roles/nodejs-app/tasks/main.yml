@@ -5,7 +5,7 @@
 
 - name: Create a directory if it does not exist
   file:
-    path: {{APPLICATION_HOME}}
+    path: "{{APPLICATION_HOME}}"
     state: directory
     owner: "{{APPLICATION_USERNAME}}"
     group: "{{APPLICATION_USERNAME}}"
