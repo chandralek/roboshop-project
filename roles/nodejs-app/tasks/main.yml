@@ -9,9 +9,6 @@
     owner: "{{APPLICATION_USERNAME}}"
     group: "{{APPLICATION_USERNAME}}"
 
-- name: Download From Nexus
-  import_tasks: download-latest.yml
-  when: DOWNLOAD_LATEST
 
-  
+
 
