@@ -2,3 +2,8 @@
   user:
     name: "{{APPLICATION_USERNAME}}"
 
+- name: Create Directory
+  file:
+    path: "{{APPLICATION_HOME}}"
+    state: directory
+
