@@ -11,7 +11,7 @@
   file:
     path: /var/log/{{APPLICATION_USERNAME}}
     state: directory
-    
+
 - name: Restart Service
   systemd:
     name: "{{APPLICATION_NAME}}"
