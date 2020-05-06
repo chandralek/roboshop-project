@@ -1,14 +1,7 @@
 - name: Create Application User
   user:
     name: "{{APPLICATION_USERNAME}}"
-    comment: "Application User - {{APPLICATION_USERNAME}} service"
 
-- name: Create Application Directory
-  file:
-    path: "{{APPLICATION_HOME}}"
-    state: directory
-    owner: "{{APPLICATION_USERNAME}}"
-    group: "{{APPLICATION_USERNAME}}"
 
 
 
