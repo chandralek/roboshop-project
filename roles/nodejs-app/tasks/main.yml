@@ -14,4 +14,7 @@
   import_tasks: download-latest.yml
   become_user: "{{APPLICATION_USERNAME}}"
 
+- name: Setup systemd.service
+  import_tasks: systemd.yml
+
 
