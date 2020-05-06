@@ -1,7 +1,6 @@
 - name: Create Application User
   user:
     name: "{{APPLICATION_USERNAME}}"
-    comment: "Application User - user.service"
 
 - name: Create a directory if it does not exist
   file:
