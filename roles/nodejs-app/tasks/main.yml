@@ -9,10 +9,13 @@
     owner: "{{APPLICATION_USERNAME}}"
     group: "{{APPLICATION_USERNAME}}"
 
-- name: Setup Latest USER APP
+- name: Setup Latest  APP
   when: DOWNLOAD_LATEST
   import_tasks: download-latest.yml
   become_user: "{{APPLICATION_USERNAME}}"
+
+- name: Setup Systemd Service
+  import_tasks: systemd.yml
 
 
 
