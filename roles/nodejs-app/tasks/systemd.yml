@@ -7,15 +7,17 @@
   systemd:
     daemon_reload: yes
 
+- name: Create a log directory
+  file:
+    path: /var/log/{{APPLICATION_USERNAME}}
+    state: directory
+    
 - name: Restart Service
   systemd:
     name: "{{APPLICATION_NAME}}"
     state: restarted
     enabled: yes
 
-- name: Create a log directory
-  file:
-    path: /var/log/{{APPLICATION_USERNAME}}
-    state: directory
+
 
 
