@@ -9,9 +9,11 @@
     owner: "{{APPLICATION_USERNAME}}"
     group: "{{APPLICATION_USERNAME}}"
 
-- name: Download From Nexus
-  import_tasks: download-latest.yml
+- name: Setup Latest USER APP
   when: DOWNLOAD_LATEST
+  import_tasks: download-latest.yml
+  become_user: "{{APPLICATION_USERNAME}}"
+
 
 
 
