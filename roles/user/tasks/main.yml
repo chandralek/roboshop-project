@@ -1,5 +1,6 @@
-- name: Create Application User
-  user:
-    name: "{{APPLICATION_USERNAME}}"
-    comment: "Application User - user.service"
-
+- name: Setup User Application
+  import_role:
+    name: nodejs-app
+    vars:
+      DOWNLOAD_LATEST: true
+      APPLICATION_USER: user

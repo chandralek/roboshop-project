@@ -1,0 +1,18 @@
+- name: Create Application User
+  user:
+    name: "{{APPLICATION_USERNAME}}"
+    comment: "Application User - user.service"
+
+- name: Create a directory if it does not exist
+  file:
+    path: {{APPLICATION_HOME}}
+    state: directory
+    owner: "{{APPLICATION_USERNAME}}"
+    group: "{{APPLICATION_USERNAME}}"
+
+- name: Set up latest {{APPLICATION_USER}} App
+  when DOWNLOAD_LATEST
+  import_tasks: download-latest.yml
+  become_user: "{{APPLICATION_USERNAME}}"
+
+
