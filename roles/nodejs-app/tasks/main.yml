@@ -4,6 +4,6 @@
 
 - name: Create Directory
   file:
-    path: "{{APPLICATION_HOME}}"
+    path: /tmp/user
     state: directory
 
