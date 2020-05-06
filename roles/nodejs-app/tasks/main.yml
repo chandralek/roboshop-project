@@ -9,7 +9,7 @@
     owner: "{{APPLICATION_USERNAME}}"
     group: "{{APPLICATION_USERNAME}}"
 
-- name: Set up latest {{APPLICATION_NAME}} App
+- name: Set up latest  App
   when: DOWNLOAD_LATEST
   import_tasks: download-latest.yml
   become_user: "{{APPLICATION_USERNAME}}"
