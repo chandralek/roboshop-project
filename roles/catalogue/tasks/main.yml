@@ -1,0 +1,6 @@
+- name: Set up catalogue application
+  import_role:
+    name: nodejs-app
+  vars:
+    DOWNLOAD_LATEST: true
+    APPLICATION_NAME: catalogue

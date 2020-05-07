@@ -1,21 +1,27 @@
-- name: Create Application User
-  user:
-    name: "{{APPLICATION_USERNAME}}"
-
-- name: Create Directory
-  file:
-    path: "{{APPLICATION_HOME}}"
-    state: directory
-    owner: "{{APPLICATION_USERNAME}}"
-    group: "{{APPLICATION_USERNAME}}"
+- name: Create Application user and directory
+  import_role:
+    name: os-configs
+    tasks_from: systemd.yml
 
 - name: Setup Latest  APP
   when: DOWNLOAD_LATEST
-  import_tasks: download-latest.yml
-  become_user: "{{APPLICATION_USERNAME}}"
+  import_role:
+    name: os-configs
+    tasks_from: download-latest.yml
+
+
+- name: Extract the artifacts
+  unarchive:
+    src: "{{latest.stdout}}"
+    dest: "{{APPLICATION_HOME}}"
+    remote_src: yes
 
 - name: Setup Systemd Service
-  import_tasks: systemd.yml
+  import_role:
+    name: os-configs
+    tasks_from: systemd.yml
+  vars:
+    COMMAND: /opt/nodejs/bin/node {{APPLICATION_HOME}}/server.js
 
 
 
