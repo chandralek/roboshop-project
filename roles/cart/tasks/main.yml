@@ -1,6 +1,6 @@
 - name: Set up cart application
   import_role:
-    name: nodejs_app
+    name: nodejs-app
   vars:
     DOWNLOAD_LATEST: true
     APPLICATION_USER: cart
