@@ -1,7 +1,7 @@
 - name: Create Application user and directory
   import_role:
     name: os-configs
-    tasks_from: systemd.yml
+    tasks_from: appuser.yml
 
 - name: Setup Latest  APP
   when: DOWNLOAD_LATEST
