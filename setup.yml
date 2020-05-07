@@ -12,3 +12,8 @@
         name: catalogue
       tags:
         - catalogue
+    - name: Import cart component
+      import_role:
+        name: cart
+      tags:
+        - cart
