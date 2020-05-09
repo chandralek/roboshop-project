@@ -18,10 +18,12 @@
     src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
     mode: '0755'
-  become_user: "{{APPLICATION_HOME}}"
+  become_user: "{{APPLICATION_USER}}"
 
 - name: Start the Service
   import_role:
     name: os-configs
     tasks_from: systemd.yml
+  vars:
+    COMMAND: /usr/bin/nohup java -jar {{APPLICATION_HOME}}/shipping.jar
 
