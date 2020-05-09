@@ -22,3 +22,8 @@
         name: dispatch
       tags:
         - dispatch
+    - name: Import Shipping Component
+      import_role:
+        name: shipping
+      tags:
+        - shipping
