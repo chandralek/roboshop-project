@@ -11,7 +11,7 @@
 - name: Copy artifacts to Directory
   get_url:
     url: "{{latest.stdout}}"
-    dest: "{{APPLICATION_HOME}}"
+    dest: "{{APPLICATION_HOME}}/dispatch"
     mode: 0755
   become_user: "{{APPLICATION_USERNAME}}
 
