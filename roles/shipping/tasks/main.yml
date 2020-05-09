@@ -1,0 +1,27 @@
+- name: Create Application User
+  import_role:
+    name: os-configs
+    tasks_from: appuser
+
+- name: Install Java
+  yum:
+    name: java
+    state: latest
+
+- name: Download artifacts from Nexus
+  import_role:
+    name: os-configs
+    tasks_from: download-latest.yml
+
+- name: Copy the artifacts
+  get_url:
+    src: "{{latest.stdout}}"
+    dest: "{{APPLICATION_HOME}}"
+    mode: '0755'
+  become_user: "{{APPLICATION_HOME}}"
+
+- name: Start the Service
+  import_role:
+    name: os-configs
+    tasks_from: systemd.yml
+
