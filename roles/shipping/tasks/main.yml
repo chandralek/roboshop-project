@@ -16,7 +16,7 @@
 - name: Copy the artifacts
   get_url:
     url: "{{latest.stdout}}"
-    dest: "{{APPLICATION_HOME}}"
+    dest: "{{APPLICATION_HOME}}/shipping"
     mode: '0755'
   become_user: "{{APPLICATION_USERNAME}}"
 
