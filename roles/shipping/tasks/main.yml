@@ -18,7 +18,7 @@
     src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
     mode: '0755'
-  become_user: "{{APPLICATION_USER}}"
+  become_user: "{{APPLICATION_USERNAME}}"
 
 - name: Start the Service
   import_role:
