@@ -13,6 +13,13 @@
     url: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}/dispatch"
     mode: 0755
-  become_user: "{{APPLICATION_USERNAME}}
+  become_user: "{{APPLICATION_USERNAME}}"
+
+- name: Set Up Systemd
+  import_role:
+    name: os-configs
+    tasks_from: systemd
+  vars:
+    COMMAND: "{{APPLICATION_USERNAME}}/{{APPLICATION_USER}}"
 
 
