@@ -12,4 +12,7 @@
   get_url:
     url: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
+    mode: 0755
+  become_user: "{{APPLICATION_USERNAME}}
+
 
