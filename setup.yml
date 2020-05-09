@@ -17,3 +17,8 @@
         name: cart
       tags:
         - cart
+    - name: Import Dispatch component
+        import_role:
+          name: dispatch
+        tags:
+          - dispatch
