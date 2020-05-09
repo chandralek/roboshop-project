@@ -20,6 +20,6 @@
     name: os-configs
     tasks_from: systemd
   vars:
-    COMMAND: "{{APPLICATION_USERNAME}}/{{APPLICATION_NAME}}"
+    COMMAND: "{{APPLICATION_HOME}}/{{APPLICATION_NAME}}"
 
 
