@@ -1,11 +1,11 @@
 - name: Create Application user
   import_role:
-    name: os_configs
+    name: os-configs
     tasks_from: appuser.yml
 
 - name: Download artifacts from nexus for {{APPLICATION_USER}} service
   import_role:
-    name: os_configs
+    name: os-configs
     tasks_from: download-latest.yml
 
 - name: Copy artifacts to Directory
