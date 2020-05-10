@@ -10,7 +10,7 @@
 
 - name: Find the files under /var/www/html
   find:
-    paths: /var/www/html
+    paths: /usr/share/nginx/html
     file_type: any
   register: find
 
