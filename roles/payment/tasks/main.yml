@@ -7,7 +7,7 @@
     - gcc
     - python3-devel
 
-- Create Application user and directory
+- name: Create Application user and directory
   import_role:
     name: os-configs
     tasks_from: appuser
