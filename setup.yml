@@ -32,3 +32,8 @@
         name: payment
       tags:
         - payment
+    - name: Import Ratings Component
+        import_role:
+          name: ratings
+        tags:
+          - ratings
