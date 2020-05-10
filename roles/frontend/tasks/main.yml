@@ -8,13 +8,6 @@
     src: nginx-localhost.conf
     dest: /etc/nginx/nginx.conf
 
-- name: Download the latest artifacts
-  import_role:
-    name: os-configs
-    tasks_from: download-latest
-  vars:
-    APPLICATION_USERNAME: root
-
 - name: Find the files under /var/www/html
   find:
     paths: /var/www/html
@@ -26,3 +19,22 @@
     src: "{{item.path}}"
     state: absent
   loop: "{{find.file}}"
+
+- name: Download the latest artifacts
+  import_role:
+    name: os-configs
+    tasks_from: download-latest
+  vars:
+    APPLICATION_USERNAME: root
+
+- name: Copy the artifacts to /var/www/html
+  unarchive:
+    src: "{{latest.stdout}}"
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+- name: Start nginx server
+  service:
+    name: nginx
+    state: restarted
+
