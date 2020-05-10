@@ -23,7 +23,8 @@
     dest: "{{APPLICATION_HOME}}"
     remote_src: yes
 
-- pip:
+- name: Download dependencies
+  pip:
     requirements: "{{APPLICATION_HOME}}/requirements.txt"
     executable: pip3
 

@@ -1,23 +1,26 @@
 - name: install the latest version of Apache
   yum:
     name: httpd
-    state: latest
+    state: installed
   loop:
     - httpd
     - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
     - yum-utils
 
-- name: Add repository
-  yum_repository:
-    name: remi-php73
-    enabled: yes
-
-- name: Install Python packages
+- name: Install PHP
   yum:
     name: "{{item}}"
-    state: present
+    state: installed
+    enablerepo: "remi-php73"
   loop:
     - php
     - php-opcache
     - php73-php-pdo
     - composer
+
+
+- name: Change the line
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^Listen'
+    line: Listen 7004
