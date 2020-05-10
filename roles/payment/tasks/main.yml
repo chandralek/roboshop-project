@@ -25,7 +25,7 @@
 
 - pip:
     requirements: requirements.txt
-    executable: pip3s
+    executable: pip3
 
 - name: Copy the {{APPLICATION_NAME}}.service file to system location
   template:
