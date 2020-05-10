@@ -1,6 +1,6 @@
 - name: Install Python packages
   package:
-    name: {{item}}
+    name: "{{item}}"
     state: present
   loop:
     - python36
