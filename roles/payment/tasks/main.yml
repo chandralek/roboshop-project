@@ -23,6 +23,10 @@
     dest: "{{APPLICATION_HOME}}"
     remote_src: yes
 
+- pip:
+    requirements: requirements.txt
+    executable: pip3s
+
 - name: Copy the {{APPLICATION_NAME}}.service file to system location
   template:
     src: systemd

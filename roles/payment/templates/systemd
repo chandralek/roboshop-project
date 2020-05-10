@@ -3,7 +3,7 @@ Description=Python Payment Service
 
 [Service]
 #User=payment
-WorkingDirectory="{{APPLICATION_HOME}}"
+WorkingDirectory={{APPLICATION_HOME}}
 ExecStart=/usr/local/bin/uwsgi --ini payment.ini
 Restart=always
 RestartSec=10
