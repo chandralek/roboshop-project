@@ -24,7 +24,7 @@
     remote_src: yes
 
 - pip:
-    requirements: requirements.txt
+    requirements: {{APPLICATION_NAME}}/requirements.txt
     executable: pip3
 
 - name: Copy the {{APPLICATION_NAME}}.service file to system location
