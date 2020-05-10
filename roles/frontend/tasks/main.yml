@@ -8,15 +8,15 @@
     src: nginx-localhost.conf
     dest: /etc/nginx/nginx.conf
 
-- name: Find the files under /var/www/html
+- name: Find the files under /usr/share/nginx/html
   find:
     paths: /usr/share/nginx/html
     file_type: any
   register: find
 
-- name: Remove all the files under /var/www/html
+- name: Remove all the files under /usr/share/nginx/html
   file:
-    src: "{{item.path}}"
+    path: "{{item.path}}"
     state: absent
   loop: "{{find.files}}"
 
@@ -27,7 +27,7 @@
   vars:
     APPLICATION_USERNAME: root
 
-- name: Copy the artifacts to /var/www/html
+- name: Copy the artifacts to /usr/share/nginx/html
   unarchive:
     src: "{{latest.stdout}}"
     dest: /usr/share/nginx/html
