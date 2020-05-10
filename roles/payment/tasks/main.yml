@@ -21,4 +21,4 @@
   unarchive:
     src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
-  become_user: "{{APPLICATION_HOME}}"
+  become_user: "{{APPLICATION_USERNAME}}"
