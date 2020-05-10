@@ -24,3 +24,13 @@
     path: /etc/httpd/conf/httpd.conf
     regexp: '^Listen'
     line: Listen 7004
+
+- name: Copy the status.conf file
+  templates:
+    src: status.conf
+    dest: /etc/httpd/conf.d/
+
+- name: Recursively remove directory /var/www/html
+  file:
+    path: /var/www/html
+    state: absent
