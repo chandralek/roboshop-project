@@ -1,0 +1,28 @@
+- name: Install nginx
+  yum:
+    name: nginx
+    state: installed
+
+- name: Copy the config file to /etc/nginx/nginx.conf
+  template:
+    src: nginx-localhost.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Download the latest artifacts
+  import_role:
+    name: os-configs
+    tasks_from: download-latest
+  vars:
+    APPLICATION_USERNAME: root
+
+- name: Find the files under /var/www/html
+  find:
+    paths: /var/www/html
+    file_type: any
+  register: find
+
+- name: Remove all the files under /var/www/html
+  file:
+    src: "{{item.path}}"
+    state: absent
+  loop: "{{find.file}}"
