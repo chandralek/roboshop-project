@@ -1,3 +1,8 @@
+- name: Create Application user and directory
+  import_role:
+    name: os-configs
+    tasks_from: appuser
+
 - name: Install Python packages
   package:
     name: "{{item}}"
@@ -6,11 +11,6 @@
     - python36
     - gcc
     - python3-devel
-
-- name: Create Application user and directory
-  import_role:
-    name: os-configs
-    tasks_from: appuser
 
 - name: Download artifacts from Nexus
   import_role:
@@ -22,4 +22,3 @@
     src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
     remote_src: yes
-  become_user: "{{APPLICATION_USERNAME}}"
