@@ -53,3 +53,12 @@
     dest: /var/www/html
     remote_src: yes
 
+- name: Install php dependenices
+  composer:
+    command: install
+    working_dir: /var/www/html
+
+- name: Start the httpd service
+  service:
+    name: httpd
+    state: started
