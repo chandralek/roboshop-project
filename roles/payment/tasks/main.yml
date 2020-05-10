@@ -21,4 +21,5 @@
   unarchive:
     src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
+    remote_src: yes
   become_user: "{{APPLICATION_USERNAME}}"
