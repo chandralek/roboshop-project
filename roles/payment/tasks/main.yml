@@ -12,12 +12,12 @@
     name: os-configs
     tasks_from: appuser
 
-- Download artifacts from Nexus
+- name: Download artifacts from Nexus
   import_role:
     name: os-configs
     tasks_from: download-latest.yml
 
-- Copy Artifacts to Directory
+- name: Copy Artifacts to Directory
   unarchive:
     src: "{{latest.stdout}}"
     dest: "{{APPLICATION_HOME}}"
