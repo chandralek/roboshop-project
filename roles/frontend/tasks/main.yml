@@ -18,7 +18,7 @@
   file:
     src: "{{item.path}}"
     state: absent
-  loop: "{{find.file}}"
+  loop: "{{find.files}}"
 
 - name: Download the latest artifacts
   import_role:
