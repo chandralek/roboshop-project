@@ -46,6 +46,8 @@
   import_role:
     name: os-configs
     tasks_from: download-latest.yml
+  vars:
+    APPLICATION_USERNAME: root
 
 - name: Copy artifacts to /var/www/html
   unarchive:
@@ -61,4 +63,4 @@
 - name: Start the httpd service
   service:
     name: httpd
-    state: started
+    state: restarted
