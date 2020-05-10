@@ -27,3 +27,8 @@
         name: shipping
       tags:
         - shipping
+    - name: Import Payment Component
+      import_role:
+        name: payment
+      tags:
+        - payment
