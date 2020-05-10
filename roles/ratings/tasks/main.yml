@@ -26,7 +26,7 @@
     line: Listen 7004
 
 - name: Copy the status.conf file
-  templates:
+  template:
     src: status.conf
     dest: /etc/httpd/conf.d/
 
