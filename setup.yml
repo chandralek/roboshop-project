@@ -38,7 +38,7 @@
       tags:
         - ratings
     - name: Import frontend Component
-        import_role:
-          name: frontend
-        tags:
-          - frontend
+      import_role:
+        name: frontend
+      tags:
+        - frontend
