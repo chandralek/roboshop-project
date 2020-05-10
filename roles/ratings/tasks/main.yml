@@ -40,4 +40,8 @@
     name: os-configs
     tasks_from: download-latest.yml
 
-- name: Copy
+- name: Copy artifacts to /var/www/html
+  unarchive:
+    src: "{{latest.stdout}}"
+    dest: /var/www/html
+  
