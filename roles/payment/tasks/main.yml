@@ -1,0 +1,24 @@
+- name: Install Python packages
+  package:
+    name: {{item}}
+    state: present
+  loop:
+    - python36
+    - gcc
+    - python3-devel
+
+- Create Application user and directory
+  import_role:
+    name: os-configs
+    tasks_from: appuser
+
+- Download artifacts from Nexus
+  import_role:
+    name: os-configs
+    tasks_from: download-latest.yml
+
+- Copy Artifacts to Directory
+  unarchive:
+    src: "{{latest.stdout}}"
+    dest: "{{APPLICATION_HOME}}"
+  become_user: "{{APPLICATION_HOME}}"
