@@ -1,0 +1,21 @@
+- name: Copy the mongo-org.repo file
+  template:
+    src: mongo-org.repo
+    dest: /etc/yum.repos.d/mongodb-org-4.2.repo
+
+- name: Install Mongo DB
+  yum:
+    name: mongodb-org
+    state: Installed
+
+- name: Replace a text in /etc/mongod.conf
+  replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name : Start Mongodb service
+  service:
+    name: mongod
+    state: started
+    enabled: yes
