@@ -10,7 +10,7 @@
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart'
-    line: Environment="REDIS_HOST={{DNS_DOMAIN_NAME}}"
+    line: Environment="REDIS_HOST=redis-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
 
 - name: Set up MONGO_URL for catalogue service
   when: VARIABLE == "MONGO_URL" and APPLICATION_NAME == "catalogue"
@@ -25,6 +25,3 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
-
-
-
