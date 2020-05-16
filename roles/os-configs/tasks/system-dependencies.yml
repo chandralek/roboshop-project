@@ -1,19 +1,19 @@
 - name: Set up MONGO_URL for user service
-  when: VARIABLE == MONGO_URL and APPLICATION_NAME == user
+  when: VARIABLE == "MONGO_URL" and APPLICATION_NAME == "user"
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart '
     line: Environment="MONGO_URL=mongodb://{{DNS_DOMAIN_NAME}}:27017/users"
 
 - name: Set up REDIS_HOST
-  when: VARIABLE == REDIS_HOST
+  when: VARIABLE == "REDIS_HOST"
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart '
     line: Environment="REDIS_HOST={{DNS_DOMAIN_NAME}}"
 
 - name: Set up MONGO_URL for catalogue service
-  when: VARIABLE == MONGO_URL and APPLICATION_NAME == user
+  when: VARIABLE == "MONGO_URL" and APPLICATION_NAME == "user"
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart '
