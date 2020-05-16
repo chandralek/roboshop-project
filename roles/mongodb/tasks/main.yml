@@ -26,8 +26,8 @@
 
 - name: Copy the artifacts
   unarchive:
-    src: "{{latest}}"
-    dest: /tmp
+    src: "{{latest.stdout}}"
+    dest: "/tmp/"
     remote_src: yes
 
 - name: Load the schema
