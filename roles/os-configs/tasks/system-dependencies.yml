@@ -19,6 +19,12 @@
     insertbefore: '^ExecStart '
     line: Environment="MONGO_URL=mongodb://{{DNS_DOMAIN_NAME}}:27017/catalogue"
 
+- name: Restart Service
+  systemd:
+    name: "{{APPLICATION_NAME}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
 
 
 
