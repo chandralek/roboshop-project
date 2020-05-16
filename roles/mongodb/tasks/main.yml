@@ -6,7 +6,7 @@
 - name: Install Mongo DB
   yum:
     name: mongodb-org
-    state: Installed
+    state: installed
 
 - name: Update MongoDB Listen Address
   replace:
