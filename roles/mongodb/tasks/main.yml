@@ -33,6 +33,6 @@
 - name: Load the schema
   shell: mongo "{{item}}"
   loop:
-    - "/tmp/user.js"
+    - "/tmp/users.js"
     - "/tmp/catalogue.js"
   ignore_errors: yes
