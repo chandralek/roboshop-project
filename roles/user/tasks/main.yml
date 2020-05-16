@@ -15,3 +15,7 @@
   loop:
     - MONGO_URL
     - REDIS_HOST
+
+- name: Systemd Daemon-reload
+  systemd:
+    daemon_reload: yes
