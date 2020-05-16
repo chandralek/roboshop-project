@@ -3,7 +3,7 @@
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart '
-    line: Environment="MONGO_URL=mongodb://mongodb-roboshop-{{APPLICATION_ENVIRONMENT}}-{{DNS_DOMAIN_NAME}}:27017/users"
+    line: Environment="MONGO_URL=mongodb://mongodb-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}:27017/users"
 
 - name: Set up REDIS_HOST
   when: VARIABLE == "REDIS_HOST"
@@ -17,7 +17,7 @@
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart '
-    line: Environment="MONGO_URL=mongodb://mongodb-roboshop-{{APPLICATION_ENVIRONMENT}}-{{DNS_DOMAIN_NAME}}:27017/catalogue"
+    line: Environment="MONGO_URL=mongodb://mongodb-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}:27017/catalogue"
 
 - name: Restart Service
   systemd:

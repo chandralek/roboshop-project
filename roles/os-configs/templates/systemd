@@ -7,7 +7,7 @@ ExecStart={{COMMAND}}
 Restart=always
 RestartSec=10
 StandardOutput=append:/var/log/{{APPLICATION_USERNAME}}/{{APPLICATION_NAME}}.log
-StandardError=append:/var/log/{{APPLICATION_USERNAME}}/{APPLICATION_NAME}}.log
+StandardError=append:/var/log/{{APPLICATION_USERNAME}}/{{APPLICATION_NAME}}.log
 SyslogIdentifier={{APPLICATION_NAME}}
 [Install]
 WantedBy=multi-user.target
