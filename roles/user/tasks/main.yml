@@ -10,7 +10,7 @@
     name: os-configs
     tasks_from: system-dependencies
   vars:
-    VARIABLE: {{item}}
+    VARIABLE: "{{item}}"
     APPLICATION_NAME: user
   loop:
       - MONGO_URL
