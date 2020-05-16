@@ -12,6 +12,6 @@
   vars:
     VARIABLE: {{item}}
     APPLICATION_NAME: user
-  - loop:
+  loop:
       - MONGO_URL
       - REDIS_HOST
