@@ -43,7 +43,7 @@
       tags:
         - frontend
     - name: Import mongodb Component
-        import_role:
-          name: mongodb
-        tags:
-          - mongodb
+      import_role:
+        name: mongodb
+      tags:
+        - mongodb
