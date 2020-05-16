@@ -47,3 +47,8 @@
         name: mongodb
       tags:
         - mongodb
+    - name: Import rabbitmq Component
+      import_role:
+        name: rabbitmq
+      tags:
+        - rabbitmq
