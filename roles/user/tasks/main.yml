@@ -4,3 +4,5 @@
   vars:
     DOWNLOAD_LATEST: true
     APPLICATION_NAME: user
+
+- name: Set up application dependencies
