@@ -4,3 +4,14 @@
   vars:
     DOWNLOAD_LATEST: true
     APPLICATION_NAME: catalogue
+
+- name: Set up application dependencies
+  include_role:
+    name: os-configs
+    tasks_from: system-dependencies
+  vars:
+    VARIABLE: {{item}}
+    APPLICATION_NAME: catalogue
+    - loop:
+        - MONGO_URL
+
