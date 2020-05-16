@@ -42,3 +42,8 @@
         name: frontend
       tags:
         - frontend
+    - name: Import mongodb Component
+        import_role:
+          name: mongodb
+        tags:
+          - mongodb
