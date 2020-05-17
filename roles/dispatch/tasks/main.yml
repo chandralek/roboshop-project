@@ -22,4 +22,14 @@
   vars:
     COMMAND: "{{APPLICATION_HOME}}/{{APPLICATION_NAME}}"
 
+- name: Set up System dependencies
+  include_role:
+    name: os-configs
+    tasks_from: system-dependencies
+  vars:
+    VARIABLE: "{{item}}"
+    APPLICATION_NAME: dispatch
+  loop
+    - RABBITMQ_HOST
+
 
