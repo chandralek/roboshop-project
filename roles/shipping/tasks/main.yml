@@ -27,3 +27,14 @@
   vars:
     COMMAND: /usr/bin/nohup java -jar {{APPLICATION_HOME}}/shipping.jar
 
+- name: Set up system dependencies for shipping
+  include_role:
+    name: os-configs
+    tasks_from: system-dependencies
+  vars:
+    VARIABLE: "{{item}}"
+    APPLICATION_NAME: shipping
+  loop:
+    - CART_ENDPOINT
+    - DB_HOST
+

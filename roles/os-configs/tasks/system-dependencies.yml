@@ -31,7 +31,29 @@
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart'
-    line: Environment="CATALOGUE_HOST=catalogue-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
+    line: Environment="CATALOGUE_HOST=catalogue-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
+
+- name: Set up CART_HOST
+  when: VARIABLE == "CART_HOST"
+  lineinfile:
+    path: /etc/systemd/system/{{APPLICATION_NAME}}.service
+    insertbefore: '^ExecStart'
+    line: Environment="CART_HOST=cart-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
+
+- name: Set up USER_HOST
+  when: VARIABLE == "USER_HOST"
+  lineinfile:
+    path: /etc/systemd/system/{{APPLICATION_NAME}}.service
+    insertbefore: '^ExecStart'
+    line: Environment="USER_HOST=user-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
+
+- name: Set up DB_HOST
+  when: VARIABLE == "DB_HOST"
+  lineinfile:
+    path: /etc/systemd/system/{{APPLICATION_NAME}}.service
+    insertbefore: '^ExecStart'
+    line: Environment="DB_HOST=mysql-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
+
 
 - name: Restart Service
   systemd:
