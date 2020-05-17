@@ -29,7 +29,7 @@
   vars:
     VARIABLE: "{{item}}"
     APPLICATION_NAME: dispatch
-  loop
+  loop:
     - RABBITMQ_HOST
 
 
