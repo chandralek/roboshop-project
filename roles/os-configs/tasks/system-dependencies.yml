@@ -19,12 +19,19 @@
     insertbefore: '^ExecStart'
     line: Environment="MONGO_URL=mongodb://mongodb-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}:27017/catalogue"
 
-- name: Set up RABBITMQ_HOST for catalogue service
+- name: Set up RABBITMQ_HOST
   when: VARIABLE == "RABBITMQ_HOST"
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
     insertbefore: '^ExecStart'
     line: Environment="RABBITMQ_HOST=rabbitmq-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
+
+- name: Set up CATALOGUE_HOST
+  when: VARIABLE == "CATALOGUE_HOST"
+  lineinfile:
+    path: /etc/systemd/system/{{APPLICATION_NAME}}.service
+    insertbefore: '^ExecStart'
+    line: Environment="CATALOGUE_HOST=catalogue-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
 
 - name: Restart Service
   systemd:

@@ -4,3 +4,14 @@
   vars:
     DOWNLOAD_LATEST: true
     APPLICATION_NAME: cart
+
+- name: Set up the system dependencies
+  include_role:
+    name: os-configs
+    tasks_from: system-dependencies
+  vars:
+    VARIABLE: "{{item}}"
+    APPLICATION_NAME: cart
+  loop
+    - REDIS_HOST
+    _ CATALOGUE_HOST
