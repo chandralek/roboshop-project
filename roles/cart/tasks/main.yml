@@ -14,4 +14,4 @@
     APPLICATION_NAME: cart
   loop
     - REDIS_HOST
-    _ CATALOGUE_HOST
+    - CATALOGUE_HOST
