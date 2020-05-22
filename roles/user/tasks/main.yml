@@ -24,3 +24,10 @@
   include_role:
     name: os-configs
     tasks_from: cron
+
+- name: Call the filebeat module
+  include_role:
+    name: filebeat
+  vars:
+    CONFIGS:
+      - {log_file:"/var/log/roboshop/shipping.log",app_name:"shipping"}

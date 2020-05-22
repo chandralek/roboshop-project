@@ -1,10 +1,12 @@
 filebeat.inputs:
-  - type: log
-    enabled: true
-    paths:
-      - {{LOG_NAME}}
-    fields:
-      appname: {{FIELD_NAME}}
+  {% for config in CONFIGS %}
+- type: log
+      enabled: true
+      paths:
+        - {{config.log_file}}
+      fields:
+        appname: {{config.app_name}}
+    {% endfor %}
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
@@ -14,7 +16,7 @@ setup.template.settings:
   index.number_of_shards: 1
 
 output.logstash:
-  hosts: ["172.31.20.249:5044"]
+  hosts: ["{{LOGSTASH}}:5044"]
 
 processors:
   - add_host_metadata: ~

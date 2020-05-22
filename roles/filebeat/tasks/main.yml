@@ -16,10 +16,6 @@
   template:
     src: filebeat.yml
     dest: /etc/filebeat/filebeat.yml
-  vars:
-    FIELD_NAME: "{{item.app_name}}"
-    LOG_NAME: "{{item.log_file}}"
-  loop:
-    - {log_file:"/var/log/roboshop/cart.log",app_name:"cart"}
+
 
 
