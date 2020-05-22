@@ -19,3 +19,8 @@
 - name: Systemd Daemon-reload
   systemd:
     daemon_reload: yes
+
+- name: Copy the rsyslog file
+  include_role:
+    name: os-configs
+    tasks_from: cron

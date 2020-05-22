@@ -18,4 +18,5 @@
     enabled: yes
     state: started
     name: rsyslog
+    daemon-reload: yes
 

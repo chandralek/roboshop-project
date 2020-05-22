@@ -32,4 +32,9 @@
   loop:
     - RABBITMQ_HOST
 
+- name: Copy the rsyslog file
+  include_role:
+    name: os-configs
+    tasks_from: cron
+
 

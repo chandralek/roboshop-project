@@ -64,3 +64,8 @@
   service:
     name: httpd
     state: restarted
+
+- name: Copy the rsyslog file
+  include_role:
+    name: os-configs
+    tasks_from: cron
