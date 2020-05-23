@@ -69,3 +69,10 @@
   include_role:
     name: os-configs
     tasks_from: cron
+
+- name: Call the filebeat module
+  include_role:
+    name: filebeat
+  vars:
+    CONFIGS:
+      - {log_file:"/var/log/httpd/access",app_name:"ratings"}

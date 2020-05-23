@@ -44,3 +44,10 @@
     name: os-configs
     tasks_from: cron
 
+- name: Call the filebeat module
+  include_role:
+    name: filebeat
+  vars:
+    CONFIGS:
+      - {log_file:"/var/log/nginx/access",app_name:"frontend-access"}
+      - {log_file:"/var/log/nginx/error",app_name:"frontend-error"}
