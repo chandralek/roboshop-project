@@ -75,4 +75,4 @@
     name: filebeat
   vars:
     CONFIGS:
-      - {log_file:"/var/log/httpd/access",app_name:"ratings"}
+      - {log_file: "/var/log/httpd/access",app_name: "ratings"}

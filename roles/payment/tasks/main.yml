@@ -70,6 +70,6 @@
     name: filebeat
   vars:
     CONFIGS:
-      - {log_file:"/var/log/roboshop/payment.log",app_name:"payment"}
+      - {log_file: "/var/log/roboshop/payment.log",app_name: "payment"}
 
 

@@ -42,6 +42,6 @@
     name: filebeat
   vars:
     CONFIGS:
-      - {log_file:"/var/log/roboshop/dispatch.log",app_name:"dispatch"}
+      - {log_file: '/var/log/roboshop/dispatch.log',app_name: 'dispatch'}
 
 

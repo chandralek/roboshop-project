@@ -26,4 +26,4 @@
     name: filebeat
   vars:
     CONFIGS:
-    - {log_file:"/var/log/roboshop/cart.log",app_name:"cart"}
+    - { log_file: '/var/log/roboshop/cart.log' ,app_name: 'cart' }

@@ -49,5 +49,5 @@
     name: filebeat
   vars:
     CONFIGS:
-      - {log_file:"/var/log/nginx/access",app_name:"frontend-access"}
-      - {log_file:"/var/log/nginx/error",app_name:"frontend-error"}
+      - {log_file: '/var/log/nginx/access.log' ,app_name: 'frontend-access'}
+      - {log_file:  '/var/log/nginx/error.log',app_name: 'frontend-error'}
