@@ -1,12 +1,12 @@
 filebeat.inputs:
   {% for config in CONFIGS %}
 - type: log
-      enabled: true
-      paths:
-        - {{config.log_file}}
-      fields:
-        appname: {{config.app_name}}
-    {% endfor %}
+  enabled: true
+  paths:
+    - {{config.log_file}}
+  fields:
+    appname: {{config.app_name}}
+  {% endfor %}
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
