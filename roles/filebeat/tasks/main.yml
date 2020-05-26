@@ -20,6 +20,6 @@
 - name: Start filebeat service
   service:
     name: filebeat
-    state: started
+    state: restarted
 
 
