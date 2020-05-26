@@ -42,16 +42,11 @@
     path: /var/log/{{APPLICATION_USERNAME}}
     state: directory
 
-- name: Restart Service
-  systemd:
-    name: "{{APPLICATION_NAME}}"
-    state: restarted
-    enabled: yes
 
 - name: Setup Dependency Variables in SystemD
   include_role:
     name: os-configs
-    tasks_from: systemd-dependencies
+    tasks_from: system-dependencies
   vars:
     VARIABLE: "{{item}}"
     APPLICATION_NAME: payment
@@ -63,6 +58,13 @@
     - "USER_HOST"
     - "RUSERNAME"
     - "RPASSWORD"
+
+- name: Restart Service
+  systemd:
+    name: "{{APPLICATION_NAME}}"
+    state: restarted
+    daemon-reload: yes
+    enabled: yes
 
 
 - name: Copy the rsyslog file
