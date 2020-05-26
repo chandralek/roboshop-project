@@ -36,6 +36,8 @@
 - name: Systemd Daemon-reload
   systemd:
     daemon_reload: yes
+    state: restarted
+    name: "{{APPLICATION_NAME}}"
 
 - name: Create a log directory
   file:

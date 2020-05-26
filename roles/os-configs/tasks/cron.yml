@@ -16,7 +16,7 @@
 - name: Start syslog
   service:
     enabled: yes
-    state: started
+    state: restarted
     name: rsyslog
     daemon-reload: yes
 
