@@ -17,3 +17,10 @@
     state: restarted
     enabled: yes
 
+- name: Create Application user
+  shell: rabbitmqctl add_user {{RUSERNAME}} {{RPASSWORD}};rabbitmqctl set_user_tags {{RUSERNAME}} administrator;rabbitmqctl set_permissions -p / {{RUSERNAME}} ".*" ".*" ".*"
+  ignore_errors: yes
+
+- name: Reset the password
+  shell: rabbitmqctl change_password {{RUSERNAME}} {{RPASSWORD}}
+
