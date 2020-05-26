@@ -18,6 +18,10 @@
     enabled: yes
 
 - name: Create Application user
+  debug:
+    msg: RUSERNAME is {{RUSERNAME}}
+
+- name: Create Application user
   shell: rabbitmqctl add_user {{RUSERNAME}} {{RPASSWORD}};rabbitmqctl set_user_tags {{RUSERNAME}} administrator;rabbitmqctl set_permissions -p / {{RUSERNAME}} ".*" ".*" ".*"
   ignore_errors: yes
 
