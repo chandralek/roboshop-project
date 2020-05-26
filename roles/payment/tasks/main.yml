@@ -48,17 +48,22 @@
     state: restarted
     enabled: yes
 
-- name: Set up System dependencies
+- name: Setup Dependency Variables in SystemD
   include_role:
     name: os-configs
-    tasks_from: system-dependencies.yml
+    tasks_from: systemd-dependencies
   vars:
     VARIABLE: "{{item}}"
     APPLICATION_NAME: payment
+    R_USERNAME: "{{RUSERNAME}}"
+    R_PASSWORD: "{{RPASSWORD}}"
   loop:
-    - CART_ENDPOINT
-    - USER_ENDPOINT
-    - RABBITMQ_HOST
+    - "RABBITMQ_HOST"
+    - "CART_HOST"
+    - "USER_HOST"
+    - "RUSERNAME"
+    - "RPASSWORD"
+
 
 - name: Copy the rsyslog file
   include_role:

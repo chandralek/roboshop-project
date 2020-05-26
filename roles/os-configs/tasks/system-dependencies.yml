@@ -54,6 +54,20 @@
     insertbefore: '^ExecStart'
     line: Environment="DB_HOST=mysql-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
 
+- name: Add RabbitMQ Username
+  when: VARIABLE == "RUSERNAME"
+  lineinfile:
+    path: /etc/systemd/system/{{APPLICATION_NAME}}.service
+    line: Environment="RUSERNAME={{R_USERNAME}}"
+    insertbefore: "^ExecStart"
+
+- name: Add RabbitMQ Password
+  when: VARIABLE == "RPASSWORD"
+  lineinfile:
+    path: /etc/systemd/system/{{APPLICATION_NAME}}.service
+    line: Environment="RPASSWORD={{R_PASSWORD}}"
+    insertbefore: "^ExecStart"
+
 
 - name: Restart Service
   systemd:
