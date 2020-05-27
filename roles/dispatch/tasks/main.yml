@@ -1,3 +1,8 @@
+- name: Copy the rsyslog file
+  include_role:
+    name: os-configs
+    tasks_from: cron
+    
 - name: Create Application user
   import_role:
     name: os-configs
@@ -32,10 +37,6 @@
   loop:
     - RABBITMQ_HOST
 
-- name: Copy the rsyslog file
-  include_role:
-    name: os-configs
-    tasks_from: cron
 
 - name: Call the filebeat module
   include_role:
