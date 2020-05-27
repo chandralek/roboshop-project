@@ -2,7 +2,7 @@
   include_role:
     name: os-configs
     tasks_from: cron
-    
+
 - name: Create Application user
   import_role:
     name: os-configs
