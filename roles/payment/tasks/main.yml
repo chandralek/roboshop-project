@@ -1,7 +1,13 @@
+- name: Copy the rsyslog file
+  include_role:
+    name: os-configs
+    tasks_from: cron
+
 - name: Create Application user and directory
   import_role:
     name: os-configs
     tasks_from: appuser
+
 
 - name: Install Python packages
   package:
@@ -67,12 +73,6 @@
     state: restarted
     daemon-reload: yes
     enabled: yes
-
-
-- name: Copy the rsyslog file
-  include_role:
-    name: os-configs
-    tasks_from: cron
 
 - name: Call the filebeat module
   include_role:
