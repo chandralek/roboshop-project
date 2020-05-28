@@ -68,7 +68,7 @@
     line: Environment="RPASSWORD={{R_PASSWORD}}"
     insertbefore: "^ExecStart"
 
-- name: Add Cart Host Dependency
+- name: Add Cart endpoint Host Dependency
   when: VARIABLE == "CART_ENDPOINT"
   lineinfile:
     path: /etc/systemd/system/{{APPLICATION_NAME}}.service
