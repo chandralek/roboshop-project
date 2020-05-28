@@ -75,6 +75,21 @@
     line: Environment="CART_ENDPOINT=cart-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}"
     insertbefore: "^ExecStart"
 
+- name: Add catalogue_url as host dependency
+  when: VARIABLE == "CATALOGUE_URL"
+  lineinfile:
+    path: /usr/lib/systemd/system/httpd.service
+    line: Environment="CATALOGUE_URL=http://catalogue-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}}:7001/"
+    insertbefore: "^ExecStart"
+
+- name: Add PDO_url as host dependency
+  when: VARIABLE == "PDO_URL"
+  lineinfile:
+    path: /usr/lib/systemd/system/httpd.service
+    line: Environment="PDO_URL=mysql:host=mysql-roboshop-{{APPLICATION_ENVIRONMENT}}.{{DNS_DOMAIN_NAME}};dbname=ratings;charset=utf8mb4"
+    insertbefore: "^ExecStart"
+
+
 - name: Restart Service
   systemd:
     name: "{{APPLICATION_NAME}}"

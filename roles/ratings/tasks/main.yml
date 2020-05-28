@@ -1,3 +1,8 @@
+- name: Copy the rsyslog file
+  include_role:
+    name: os-configs
+    tasks_from: cron
+
 - name: install the latest version of Apache
   yum:
     name: "{{item}}"
@@ -60,15 +65,21 @@
     command: install
     working_dir: /var/www/html
 
+- name: Setup Dependency Variables in SystemD
+  include_role:
+    name: os-configs
+    tasks_from: systemd-dependencies
+  vars:
+    VARIABLE: "{{item}}"
+    APPLICATION_NAME: httpd
+  loop:
+    - "PDO_URL"
+    - "CATALOGUE_URL"
+
 - name: Start the httpd service
   service:
     name: httpd
     state: restarted
-
-- name: Copy the rsyslog file
-  include_role:
-    name: os-configs
-    tasks_from: cron
 
 - name: Call the filebeat module
   include_role:
