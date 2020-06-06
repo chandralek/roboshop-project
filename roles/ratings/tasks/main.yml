@@ -68,7 +68,7 @@
 - name: Setup Dependency Variables in SystemD
   include_role:
     name: os-configs
-    tasks_from: systemd-dependencies
+    tasks_from: system-dependencies
   vars:
     VARIABLE: "{{item}}"
     APPLICATION_NAME: httpd
