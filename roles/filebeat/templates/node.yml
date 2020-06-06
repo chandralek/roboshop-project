@@ -1,14 +1,14 @@
 filebeat.inputs:
   {% for config in CONFIGS %}
   - type: log
-    enabled: true
-    paths:
-      - {{config.log_file}}
-    fields:
-      appname: {{config.app_name}}
-    multiline.pattern: '^.*\{\"name\"|\"level\"'
-    multiline.negate: true
-    multiline.match: after
+      enabled: true
+      paths:
+        - {{config.log_file}}
+      fields:
+        appName: {{config.field_name}}
+      multiline.pattern: '^.*\{\"name\"|\"level\"'
+      multiline.negate: true
+      multiline.match: after
     {% endfor %}
 
 filebeat.config.modules:
