@@ -5,7 +5,7 @@ filebeat.inputs:
       paths:
         - {{config.log_file}}
       fields:
-        appName: {{config.field_name}}
+        appName: {{config.app_name}}
       multiline.pattern: '^.*\{\"name\"|\"level\"'
       multiline.negate: true
       multiline.match: after
