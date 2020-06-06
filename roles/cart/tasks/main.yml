@@ -27,3 +27,4 @@
   vars:
     CONFIGS:
     - { log_file: '/var/log/roboshop/cart.log' ,app_name: 'cart' }
+    LOG_TEMPLATE: "nodejs"

@@ -16,6 +16,13 @@
   template:
     src: filebeat.yml
     dest: /etc/filebeat/filebeat.yml
+  when: {{LOG_TEMPLATE}} is not defined
+
+- name: Copy the /etc/filebeat/filebeat.yml
+  template:
+    src: node.yml
+    dest: /etc/filebeat/filebeat.yml
+  when: {{LOG_TEMPLATE}} is  defined
 
 - name: Start filebeat service
   service:
