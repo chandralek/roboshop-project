@@ -30,4 +30,4 @@
     name: filebeat
   vars:
     CONFIGS:
-      - {log_file: "/var/log/roboshop/shipping.log",app_name: "shipping"}
+      - {log_file: "/var/log/roboshop/user.log",app_name: "user"}
