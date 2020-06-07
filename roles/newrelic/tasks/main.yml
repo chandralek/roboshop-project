@@ -40,7 +40,7 @@
     dest: /tmp/delete-alert.sh
     mode: 0755
 - name: copy add-alert
-  file:
+  copy:
     src: make-alert.sh
     dest: /tmp/delete-alert.sh
     mode: 0755
