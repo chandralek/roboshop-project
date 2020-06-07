@@ -28,3 +28,9 @@
     CONFIGS:
     - { log_file: '/var/log/roboshop/cart.log' ,app_name: 'cart' }
     LOG_TEMPLATE: "nodejs"
+
+- name: Monitor the service
+  include_role:
+    name: newrelic
+  vars:
+    ALERT_NAME: "cart"
