@@ -32,7 +32,7 @@
     dest: "/tmp/{{item}}"
   loop:
     - cart-svc-proc-check.json
-  when: "{{ALERT_NAME}}" == "cart"
+  when: ALERT_NAME == "cart"
 
 - name: copy delete-alert
   copy:
