@@ -42,7 +42,7 @@
 - name: copy add-alert
   copy:
     src: make-alert.sh
-    dest: /tmp/delete-alert.sh
+    dest: /tmp/make-alert.sh
     mode: 0755
 
 - name: Delete Old Alerts
