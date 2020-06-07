@@ -1,5 +1,6 @@
 - name: Set up Roboshop application
   hosts: all
+  gather_facts: True
   become: yes
   tasks:
     - name: Import User component

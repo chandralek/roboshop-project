@@ -51,6 +51,6 @@
 - name: Create an alert
   shell: sh /tmp/make-alert.sh {{API_KEY}} host-not-report.json
 
-
-
+- name: Create an alert
+  shell: sh /tmp/make-alert.sh {{API_KEY}} cart-svc-proc-check.json
 
